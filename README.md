@@ -1,36 +1,34 @@
 # Necta Agents
 
-> **Note:** NectaFi was discontinued in November 2025. This repository is preserved as a portfolio reference. The system is no longer operational.
-
-NectaFi was an autonomous, multi-agent DeFi system that automated stablecoin yield optimization and portfolio management on Base. Built with Bun, Hono, the Vercel AI SDK, OpenAI, Stakekit, Brahma ConsoleKit, Safe Smart Account, and Supabase.
+An autonomous, multi-agent DeFi system that automates stablecoin yield optimization and portfolio management on Base. Built with Bun, Hono, the Vercel AI SDK, OpenAI, Stakekit, Brahma ConsoleKit, Safe Smart Account, and Supabase.
 
 ## Overview
 
-Necta Agents was an AI-powered DeFi yield automation backend that:
+Necta Agents is an AI-powered DeFi yield automation backend that:
 
-- **Continuously monitored** market conditions and wallet status through **Stakekit APIs**
-- **Identified optimal yield opportunities** to maximize returns using **Stakekit's real-time yield data**
-- **Executed transactions securely** through **Brahma accounts** (powered by **Safe Smart Account**)
-- **Operated autonomously** with no human intervention required
+- **Continuously monitors** market conditions and wallet status through **Stakekit APIs**
+- **Identifies optimal yield opportunities** to maximize returns using **Stakekit's real-time yield data**
+- **Executes transactions securely** through **Brahma accounts** (powered by **Safe Smart Account**)
+- **Operates autonomously** with no human intervention required
 
 ## System Architecture
 
-The system consisted of three specialized AI agents working together:
+The system consists of three specialized AI agents working together:
 
 1. **Sentinel Agent** — Market analysis and opportunity detection
-   - Monitored market conditions
-   - Tracked wallet status
-   - Generated intelligence reports
+   - Monitors market conditions
+   - Tracks wallet status
+   - Generates intelligence reports
 
 2. **Curator Agent** — Strategy formulation and task generation
-   - Analyzed Sentinel reports
-   - Determined optimal actions
-   - Curated executable tasks
+   - Analyzes Sentinel reports
+   - Determines optimal actions
+   - Curates executable tasks
 
 3. **Executor Agent** — Secure transaction execution
-   - Processed tasks into transactions
-   - Executed via Brahma ConsoleKit
-   - Verified transaction success
+   - Processes tasks into transactions
+   - Executes via Brahma ConsoleKit
+   - Verifies transaction success
 
 ### Architectural Diagram
 
@@ -112,10 +110,10 @@ src/
 
 ## Security
 
-- **Non-custodial:** All funds remained in user's Brahma account
-- **Secure execution:** ConsoleKit handled transaction security
-- **Limited permissions:** Executor only signed transaction data
-- **Transaction simulation:** All transactions were simulated before execution
+- **Non-custodial:** All funds remain in user's Brahma account
+- **Secure execution:** ConsoleKit handles transaction security
+- **Limited permissions:** Executor only signs transaction data
+- **Transaction simulation:** All transactions are simulated before execution
 
 ## Local Setup
 
