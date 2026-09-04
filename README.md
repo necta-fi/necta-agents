@@ -1,37 +1,36 @@
-# 🤖 Necta Agents
+# Necta Agents
 
-NectaFi is an autonomous, multi-agent DeFi system that automates stablecoin yield optimization and portfolio management, built on Base. It is powered by Bun, Hono, the Vercel AI SDK, OpenAI, Stakekit, Brahma's ConsoleKit, Safe Smart Account, Supabase, and more.
+> **Note:** NectaFi was discontinued in November 2025. This repository is preserved as a portfolio reference. The system is no longer operational.
 
-## Overview 📚
+NectaFi was an autonomous, multi-agent DeFi system that automated stablecoin yield optimization and portfolio management on Base. Built with Bun, Hono, the Vercel AI SDK, OpenAI, Stakekit, Brahma ConsoleKit, Safe Smart Account, and Supabase.
 
-Overview 📚
-Necta Agents is an AI-powered DeFi yield automation system that:
+## Overview
 
--   **Continuously monitors** market conditions and wallet status through **Stakekit APIs**
--   **Identifies optimal yield opportunities** to maximize returns using **Stakekit's real-time yield data**
--   **Executes transactions securely** through **Brahma accounts** (powered by **Safe Smart Account**)
--   **Operates autonomously** with no human intervention required
+Necta Agents was an AI-powered DeFi yield automation backend that:
 
-## System Architecture 🏗️
+- **Continuously monitored** market conditions and wallet status through **Stakekit APIs**
+- **Identified optimal yield opportunities** to maximize returns using **Stakekit's real-time yield data**
+- **Executed transactions securely** through **Brahma accounts** (powered by **Safe Smart Account**)
+- **Operated autonomously** with no human intervention required
 
-The system consists of three main AI agents working together:
+## System Architecture
 
-1. **Sentinel Agent**: Market analysis and opportunity detection
+The system consisted of three specialized AI agents working together:
 
-    - Monitors market conditions
-    - Tracks wallet status
-    - Generates intelligence reports
+1. **Sentinel Agent** — Market analysis and opportunity detection
+   - Monitored market conditions
+   - Tracked wallet status
+   - Generated intelligence reports
 
-2. **Curator Agent**: Strategy formulation and task generation
+2. **Curator Agent** — Strategy formulation and task generation
+   - Analyzed Sentinel reports
+   - Determined optimal actions
+   - Curated executable tasks
 
-    - Analyzes Sentinel reports
-    - Determines optimal actions
-    - Curates executable tasks
-
-3. **Executor Agent**: Secure transaction execution
-    - Processes tasks into transactions
-    - Executes via Brahma ConsoleKit
-    - Verifies transaction success
+3. **Executor Agent** — Secure transaction execution
+   - Processed tasks into transactions
+   - Executed via Brahma ConsoleKit
+   - Verified transaction success
 
 ### Architectural Diagram
 
@@ -44,79 +43,28 @@ The system consists of three main AI agents working together:
 ### Core Components
 
 1. **Infrastructure**
-
-    - Event Bus: Inter-agent communication system
-    - Memory System: Supabase for persistent storage
+   - Event Bus: Inter-agent communication system
+   - Memory System: Supabase for persistent storage
 
 2. **Data Sources**
+   - Market Data: Stakekit yield API for protocol yields
+   - Wallet Status: Account balances and positions
 
-    - Market Data: Uses Stakekit yield API for Protocol yields
-    - Wallet Status: Account balances and positions
+3. **Onchain Execution:** Brahma ConsoleKit
 
-3. Onchain Execution: Brahma ConsoleKit
+## Tech Stack
 
-## Quick Start 🚀
+| Layer | Technology |
+|-------|-----------|
+| Runtime | [Bun](https://bun.sh/) |
+| Server | [Hono](https://hono.dev/) |
+| AI / LLM | [Vercel AI SDK](https://sdk.vercel.ai/), [OpenAI](https://openai.com/) |
+| Database | [Supabase](https://supabase.com/) |
+| Yield Data | [Stakekit](https://stakek.it/) |
+| Onchain Execution | [Brahma ConsoleKit](https://consolekit.brahma.fi/) |
+| Smart Account | [Safe](https://safe.global/) |
 
-### Prerequisites
-
--   Hono
--   Bun
--   Supabase account
--   ConsoleKit API key
--   OpenAI API key
--   Vercel AI SDK
--   Brahma ConsoleKit
--   Safe Smart Account
--   Stakekit API key
-
-### Installation
-
-1. Clone and install:
-
-```bash
-git clone https://github.com/NectaFi/necta-agents.git
-cd necta-agents
-bun install
-```
-
-2. Configure environment:
-
-```bash
-cp .env.example .env
-```
-
-### Setup Steps
-
-1. **Register Executor (Gasless)**
-
-```bash
-ENABLE_AGENTS=true bun src/index.ts
-```
-
-2. **Create Brahma Account**
-
-    - Visit [Console.fi](https://dev.console.fi)
-    - Connect wallet (same as executor)
-    - Create Brahma account
-    - Create subscription with registered executor
-    - Fund account with USDC
-
-3. **Add Brahma Account**
-
-```env
-BRAHMA_ACCOUNT_ADDRESS="0x..."
-```
-
-## Security 🛡️
-
--   Non-custodial: All funds remain in Brahma account
--   Secure execution: ConsoleKit handles transaction security
--   Limited permissions: Executor only signs transaction data
--   Transaction simulation: All transactions are simulated before execution
-
-## Development Guide 🛠️
-
-### Project Structure
+## Project Structure
 
 ```
 src/
@@ -147,8 +95,8 @@ src/
 │   └── sentinel-system-prompt.ts
 ├── data/                    # Data fetching and processing
 │   ├── index.ts
-│   ├── stakekit.ts         # Stakekit Integration
-│   ├── stakekit.test.ts    # Stakekit Integration test
+│   ├── stakekit.ts         # Stakekit integration
+│   ├── stakekit.test.ts    # Stakekit integration test
 │   └── types.ts
 ├── comms/                   # Inter-agent communication
 │   ├── index.ts
@@ -162,36 +110,43 @@ src/
 └── setup.ts                # System initialization
 ```
 
-### Key Files
+## Security
 
--   `src/agents/index.ts`: Agent system initialization
--   `src/services/console-kit/`: ConsoleKit integration
--   `src/system-prompts/`: Agent behavior definitions
--   `src/data/`: Stakekit Market data and protocol integrations
+- **Non-custodial:** All funds remained in user's Brahma account
+- **Secure execution:** ConsoleKit handled transaction security
+- **Limited permissions:** Executor only signed transaction data
+- **Transaction simulation:** All transactions were simulated before execution
 
-### Adding New Features
+## Local Setup
 
-1. **Extend Agent Capabilities**
+1. Clone and install:
 
-    - Add tools in agent's toolkit
-    - Update system prompts
-    - Register new event handlers
+```bash
+git clone https://github.com/NectaFi/necta-agents.git
+cd necta-agents
+bun install
+```
 
-2. **Add Protocol Support**
-    - Add protocol addresses
-    - Implement data fetching
-    - Update transaction building
+2. Configure environment:
 
-# Frontend
+```bash
+cp .env.example .env
+```
 
-[Necta App](https://github.com/NectaFi/necta-app)
+3. Start the server:
 
-## Contributing 🤝
+```bash
+ENABLE_AGENTS=true bun src/index.ts
+```
 
-## License 📄
+## Related
 
-MIT License - See [LICENSE](LICENSE) for details
+- **Frontend:** [necta-app](https://github.com/NectaFi/necta-app)
 
-## Disclaimer ⚠️
+## License
 
-This code is provided as-is with no guarantees. Not audited. Use at your own risk. Not financial advice.
+MIT License — See [LICENSE](LICENSE) for details.
+
+## Disclaimer
+
+This code is provided as-is with no guarantees. It has not been audited. Do not use with real funds. This is not financial advice.
